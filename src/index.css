@@ -1,0 +1,318 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'Instrument Sans';
+  font-style: normal;
+  font-weight: 400 700;
+  font-stretch: 75% 100%;
+  font-display: swap;
+  src: url('/assets/fonts/instrument-sans.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/assets/fonts/jetbrains-mono-400.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/assets/fonts/jetbrains-mono-500.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Instrument Sans Fallback';
+  src: local('system-ui'), local('-apple-system'), local('Segoe UI'), local('sans-serif');
+  size-adjust: 100%;
+  ascent-override: 96%;
+  descent-override: 24%;
+  line-gap-override: 0%;
+}
+
+@font-face {
+  font-family: 'JetBrains Mono Fallback';
+  src: local('ui-monospace'), local('SFMono-Regular'), local('Menlo'), local('monospace');
+  size-adjust: 100%;
+  ascent-override: 95%;
+  descent-override: 25%;
+  line-gap-override: 0%;
+}
+
+@theme {
+  --font-sans: 'Instrument Sans', 'Instrument Sans Fallback', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Instrument Sans', 'Instrument Sans Fallback', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'JetBrains Mono Fallback', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Color System */
+  --color-background: #FFFFFF;
+  --color-surface: #F7F7F5;
+  --color-border: #E7E5E0;
+  --color-text-primary: #111111;
+  --color-text-secondary: #5C5C57;
+  --color-text-tertiary: #9A9A93;
+  --color-accent: #2F4BFF;
+  --color-accent-hover: #1E3CD8;
+
+  --color-ink: #111111;
+  --color-ink-2: #5C5C57;
+  --color-ink-3: #9A9A93;
+  --color-on-dark: #FFFFFF;
+
+  --color-foreground: #111111;
+  --color-muted: #F7F7F5;
+  --color-muted-foreground: #5C5C57;
+  --color-primary: #111111;
+  --color-primary-foreground: #FFFFFF;
+  --color-secondary: #F7F7F5;
+  --color-secondary-foreground: #111111;
+  --color-destructive: #EF4444;
+  --color-destructive-foreground: #FFFFFF;
+  --color-input: #E7E5E0;
+  --color-ring: #2F4BFF;
+}
+
+:root {
+  /* User-specified color system */
+  --bg: #FFFFFF;
+  --surface: #F7F7F5;
+  --border: #E7E5E0;
+  --text: #111111;
+  --text-2: #5C5C57;
+  --text-muted: #9A9A93;
+  --accent: #2F4BFF;
+  --accent-hover: #1E3CD8;
+
+  /* Aliases for backwards compatibility and components */
+  --background: var(--bg);
+  --border-light: var(--border);
+  --text-primary: var(--text);
+  --text-secondary: var(--text-2);
+  --text-tertiary: var(--text-muted);
+  --text-main: var(--text);
+  --text-subtle: var(--text-muted);
+
+  --ink: var(--text);
+  --ink-2: var(--text-2);
+  --ink-3: var(--text-muted);
+  --accent-strong: var(--accent-hover);
+  --on-dark: #FFFFFF;
+
+  /* Font family variables */
+  --font-body: 'Instrument Sans', 'Instrument Sans Fallback', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'JetBrains Mono Fallback', ui-monospace, monospace;
+
+  /* Surface and base */
+  --bg-page: var(--bg);
+  --color-hairline: var(--border);
+
+  /* Glassmorphism Design Tokens on White */
+  --glass-bg: rgba(255, 255, 255, 0.88);
+  --glass-bg-strong: rgba(255, 255, 255, 0.96);
+  --glass-bg-opaque: rgba(255, 255, 255, 0.99);
+  --glass-blur: 16px;
+  --glass-border: 1px solid var(--border);
+  --glass-shadow: 0 1px 3px rgba(17, 17, 17, 0.03), 0 4px 12px rgba(17, 17, 17, 0.02);
+}
+
+/* User-specified text highlight style */
+.hl {
+  color: #111111;
+  font-weight: 600;
+  background: linear-gradient(transparent 62%, rgba(47, 75, 255, 0.18) 62%);
+  padding: 0 2px;
+}
+
+@media (max-width: 767px) {
+  :root {
+    --glass-blur: 12px;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: clip;
+  scrollbar-gutter: stable;
+  background-color: var(--background);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text-secondary);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-kerning: normal;
+  font-feature-settings: "kern", "liga";
+  overflow-x: clip;
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* Headings use text-wrap: balance, high-contrast text-primary (#111111), and paragraphs use text-wrap: pretty */
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+  color: var(--text-primary);
+}
+
+.sub-heading {
+  color: var(--text-secondary);
+}
+
+p {
+  text-wrap: pretty;
+}
+
+/* Tabular numbers for all numeric data (years, stats, dates) */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Selection: Single accent #2F4BFF at 15% background with #111111 text */
+::selection {
+  background-color: rgba(47, 75, 255, 0.15);
+  color: var(--text-primary);
+}
+
+/* Custom focus ring: 2px accent, 2px offset */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Section scroll margin to clear fixed nav */
+section[id] {
+  scroll-margin-top: 88px;
+}
+
+/* Display font utilities */
+.font-display {
+  font-family: var(--font-display);
+}
+
+/* Hero name wrapper with container-type: inline-size */
+.hero-name-container {
+  container-type: inline-size;
+  width: 100%;
+}
+
+/* Hero name: Instrument Sans 600, wdth 75, letter-spacing -0.035em, line-height 1.02, text-primary */
+.hero-name {
+  font-family: 'Instrument Sans', 'Instrument Sans Fallback', system-ui, sans-serif;
+  font-weight: 600;
+  font-stretch: 75%;
+  font-variation-settings: 'wdth' 75, 'wght' 600;
+  font-optical-sizing: auto;
+  font-style: normal;
+  letter-spacing: -0.035em;
+  line-height: 1.02;
+  color: var(--text-primary);
+  white-space: nowrap;
+  display: block;
+  font-size: min(11.5cqi, 5.5rem);
+}
+
+/* Section heading: 600, wdth 90, clamp(1.875rem, 5vw, 3rem), letter-spacing -0.03em, line-height 1.08, text-primary, text-wrap: balance */
+.section-heading {
+  font-family: 'Instrument Sans', 'Instrument Sans Fallback', system-ui, sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-stretch: 90%;
+  font-variation-settings: 'wdth' 90, 'wght' 600;
+  font-optical-sizing: auto;
+  color: var(--text-primary);
+  font-size: clamp(1.875rem, 5vw, 3rem);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
+/* Reusable Glass Panel Classes */
+.glass-panel {
+  background-color: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  border-radius: 12px;
+}
+
+.glass-panel-strong {
+  background-color: var(--glass-bg-strong);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  border-radius: 12px;
+}
+
+/* Tool Logo transitions: grayscale on hover devices, brand color on hover/focus */
+.tool-logo-img {
+  filter: grayscale(100%);
+  opacity: 0.6;
+  transition: filter 200ms ease, opacity 200ms ease, transform 200ms ease;
+}
+
+@media (hover: hover) {
+  .tool-item-box:hover .tool-logo-img,
+  .tool-item-box:focus-visible .tool-logo-img {
+    filter: none !important;
+    opacity: 1 !important;
+    transform: translateY(-1px);
+  }
+}
+
+@media (hover: none) {
+  .tool-logo-img {
+    filter: none !important;
+    opacity: 1 !important;
+  }
+}
+
+.break-anywhere {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.page-fade-in {
+  animation: pageFadeIn 400ms ease-out forwards;
+}
+
+@keyframes pageFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .page-fade-in {
+    animation: none !important;
+    opacity: 1 !important;
+  }
+}
+
+/* GlassFolder focus outline override to match site --accent */
+.projects-folder-container .gf-sheet:focus-visible,
+.projects-folder-container .gf-key:focus-visible,
+.education-folder-container .gf-sheet:focus-visible,
+.education-folder-container .gf-key:focus-visible {
+  outline-color: var(--accent) !important;
+}

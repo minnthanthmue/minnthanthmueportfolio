@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A" />
+      <stop offset="100%" stop-color="#1E293B" />
+    </linearGradient>
+    <linearGradient id="google-bar" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#4285F4" />
+      <stop offset="33%" stop-color="#EA4335" />
+      <stop offset="66%" stop-color="#FBBC05" />
+      <stop offset="100%" stop-color="#34A853" />
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#334155" stroke-width="0.75" stroke-opacity="0.5" />
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="500" fill="url(#bg)" />
+  <rect width="800" height="500" fill="url(#grid)" />
+
+  <!-- Top Accent Bar -->
+  <rect x="0" y="0" width="800" height="6" fill="url(#google-bar)" />
+
+  <!-- Inner Certificate Border -->
+  <rect x="36" y="36" width="728" height="428" rx="8" fill="none" stroke="#475569" stroke-width="1.5" stroke-dasharray="6 4" stroke-opacity="0.6" />
+
+  <!-- Decorative geometric accents -->
+  <circle cx="700" cy="90" r="45" fill="#4285F4" fill-opacity="0.08" />
+  <circle cx="700" cy="90" r="25" fill="#34A853" fill-opacity="0.08" />
+
+  <!-- Google Logo / Watermark -->
+  <g transform="translate(64, 70)">
+    <text font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="28" font-weight="700" fill="#FFFFFF" letter-spacing="-0.5">Google</text>
+  </g>
+
+  <!-- Subtitle -->
+  <text x="64" y="140" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="600" fill="#94A3B8" letter-spacing="2">PROFESSIONAL CERTIFICATE</text>
+
+  <!-- Certificate Title -->
+  <text x="64" y="195" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="36" font-weight="800" fill="#FFFFFF" letter-spacing="-0.5">
+    Google AI Professional Certificate
+  </text>
+
+  <!-- Description / Subject lines -->
+  <text x="64" y="245" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="15" fill="#CBD5E1">
+    Artificial Intelligence, Machine Learning &amp; Applied LLM Solutions
+  </text>
+  <text x="64" y="275" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" fill="#64748B">
+    Coursera Verified Credential · 7 Courses Series
+  </text>
+
+  <!-- Bottom Details -->
+  <g transform="translate(64, 380)">
+    <text font-family="monospace, ui-monospace, sans-serif" font-size="11" fill="#64748B" letter-spacing="1">CREDENTIAL ID</text>
+    <text y="22" font-family="monospace, ui-monospace, sans-serif" font-size="14" font-weight="600" fill="#38BDF8">545Z2IG6REOZ</text>
+  </g>
+
+  <g transform="translate(450, 380)">
+    <text font-family="monospace, ui-monospace, sans-serif" font-size="11" fill="#64748B" letter-spacing="1">ISSUED DATE</text>
+    <text y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="600" fill="#E2E8F0">2026</text>
+  </g>
+
+  <!-- Verification Badge Seal -->
+  <g transform="translate(680, 385)">
+    <circle cx="0" cy="0" r="28" fill="#1E293B" stroke="#4285F4" stroke-width="2" />
+    <path d="M-8 0 L-2 6 L9 -5" fill="none" stroke="#38BDF8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+  </g>
+</svg>
